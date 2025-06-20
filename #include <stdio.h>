@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+
+void compress(char *input, char *output) {
+    int count, i, j = 0;
+    int len = strlen(input);
+
+    for (i = 0; i < len; i++) {
+        output[j++] = input[i];
+        count = 1;
+        while (i + 1 < len && input[i] == input[i + 1]) {
+            count++;
+            i++;
+        }
+        j += sprintf(&output[j], "%d", count);
+    }
+    output[j] = '\0';
+}
+
+void decompress(char *input, char *output) {
+    int i = 0, j = 0;
+    while (input[i]) {
+        char ch = input[i++];
+        int count = 0;
+        while (isdigit(input[i])) {
+            count = count * 10 + (input[i++] - '0');
+        }
+        for (int k = 0; k < count; k++)
+            output[j++] = ch;
+    }
+    output[j] = '\0';
+}
+
+int main() {
+    char text[] = "aaabbbccccdd";
+    char compressed[100], decompressed[100];
+
+    compress(text, compressed);
+    printf("Compressed: %s\n", compressed);
+
+    decompress(compressed, decompressed);
+    printf("Decompressed: %s\n", decompressed);
+
+    return 0;
+}
