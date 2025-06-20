@@ -31,3 +31,7 @@ Compressed: a3b3c4d2
 Decompressed: aaabbbccccdd
 
 This confirms that the compression and decompression are functioning correctly. This task is not only an exercise in coding logic but also a foundational step in understanding how larger-scale data compression technologies work. It’s particularly useful for students and beginners looking to understand both algorithm design and string processing in C.
+
+*OUTPUT:
+
+![Image](https://github.com/user-attachments/assets/8f871ebf-5d4d-4ef3-8761-af03206c88ae)
